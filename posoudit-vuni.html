@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posoudit vůni</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Náš bar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Náš bar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="posoudit-vuni.html">Posoudit vůni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/no-sleepin" target="_blank">Můj Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="bg-info border border-dark p-4 rounded" style="max-width: 600px; width: 100%;">
+            <h1 class="text-center mb-4">Posoudit vůni</h1>
+            <form action="https://formsubmit.co/jschiebert@spskt.cz" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="nazevVune" class="form-label">Název vůně <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nazevVune" name="nazevVune" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Typ vůně</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="typVune" id="kvetinove" value="kvetinove">
+                        <label class="form-check-label" for="kvetinove">Květinové</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="typVune" id="ovocna" value="ovocna">
+                        <label class="form-check-label" for="ovocna">Ovocná</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="typVune" id="kotenena" value="kotenena">
+                        <label class="form-check-label" for="kotenena">Kořeněná</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="typVune" id="experimentalni" value="experimentalni">
+                        <label class="form-check-label" for="experimentalni">Experimentální</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="datumVytvoreni" class="form-label">Datum vytvoření vůně</label>
+                    <input type="date" class="form-control" id="datumVytvoreni" name="datumVytvoreni">
+                </div>
+                <div class="mb-3">
+                    <label for="intenzitaVune" class="form-label">Intenzita vůně</label>
+                    <input type="range" class="form-range" min="0" max="100" id="intenzitaVune" name="intenzitaVune">
+                    <output id="intenzitaValue" class="form-text">50</output>
+                </div>
+                <div class="mb-3">
+                    <label for="barvaVune" class="form-label">Barva vůně</label>
+                    <input type="color" class="form-control form-control-color" id="barvaVune" name="barvaVune">
+                </div>
+                <div class="mb-3">
+                    <label for="kodVzorku" class="form-label">Kód vzorku</label>
+                    <input type="text" class="form-control" id="kodVzorku" name="kodVzorku" pattern="[A-Z]{2}-\d{3}[A-Z]" placeholder="např. VB-123A">
+                </div>
+                <div class="mb-3">
+                    <label for="obrazekVzorku" class="form-label">Obrázek vzorku</label>
+                    <input type="file" class="form-control" id="obrazekVzorku" name="obrazekVzorku" accept="image/*">
+                </div>
+                <div class="mb-3">
+                    <label for="emailZadatele1" class="form-label">Email žadatele <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="emailZadatele1" name="emailZadatele1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="emailZadatele2" class="form-label">Potvrzení emailu <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="emailZadatele2" name="emailZadatele2" required>
+                    <div class="form-text">Zadejte email znovu pro potvrzení.</div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                    <button type="submit" class="btn btn-primary">Odeslat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('intenzitaVune').addEventListener('input', function() {
+            document.getElementById('intenzitaValue').value = this.value;
+        });
+    </script>
+</body>
+</html>
